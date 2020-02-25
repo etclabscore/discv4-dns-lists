@@ -1,6 +1,6 @@
 # discv4-dns-lists
 
-This repository is a downstream fork of [ethereum/discv4-dns-list](shttps://github.com/ethereum/discv4-dns-lists)
+This repository is a downstream fork of [ethereum/discv4-dns-list](https://github.com/ethereum/discv4-dns-lists)
 which includes DNS discovery information for ETC as well as ETH networks.
 
 Source for the devp2p tool mentioned below which support ETC network filters
