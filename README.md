@@ -1,7 +1,15 @@
 # discv4-dns-lists
 
+This repository is a downstream fork of [ethereum/discv4-dns-list](shttps://github.com/ethereum/discv4-dns-lists)
+which includes DNS discovery information for ETC as well as ETH networks.
+
+Source for the devp2p tool mentioned below which support ETC network filters
+can be found at [etclabscore/core-geth](https://github.com/etclabscore/core-geth).
+
+---
+
 This repository contains [EIP-1459][EIP-1459] node lists built by the go-ethereum devp2p
-tool. These lists are published to the ethdisco.net DNS name.
+tool. These lists are published to the ~~ethdisco.net~~ blockd.info DNS name.
 
 The nodes in the lists are found by crawling the Ethereum node discovery DHT. The entire
 output of the crawl is available in the `all.json` file. We create lists for specific
