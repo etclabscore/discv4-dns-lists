@@ -5,7 +5,7 @@ on:
 jobs:
   build:
     if: github.repository == 'etclabscore/discv4-dns-lists'
-    name: Disv4-DNS-Crawler
+    name: Discv4-DNS-Crawler
     runs-on: ubuntu-latest
     env:
       ETH_DNS_DISCV4_CRAWLTIME: 60m
