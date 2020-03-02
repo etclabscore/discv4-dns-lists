@@ -41,8 +41,12 @@ jobs:
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
         cd core-geth
+        git fetch origin --tags
+        git checkout $(git describe --abbrev=0)
         make all
         echo "::add-path::$(pwd)/build/bin"
+        cd ..
+        git diff --quiet || { git add core-geth && git -c user.name='meows' -c user.email='b5c6@protonmail.com' commit --author='crawler <>' -m "ci update (core-geth) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
     - name: Setup secrets
       run: |
