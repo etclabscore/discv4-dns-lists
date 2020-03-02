@@ -73,4 +73,6 @@ jobs:
         ./ci/deploy.sh classic kotti mordor
 
     - name: Push
-      run: git push
+      run: |
+        git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+        git push github etccore:etccore
