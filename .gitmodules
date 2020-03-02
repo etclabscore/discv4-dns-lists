@@ -1,0 +1,3 @@
+[submodule "core-geth"]
+	path = core-geth
+	url = https://github.com/etclabscore/core-geth.git
