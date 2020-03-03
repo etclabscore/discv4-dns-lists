@@ -1,10 +1,8 @@
 name: Discv4 Crawl and DNS Update
-on:
-  schedule:
-    - cron: '0 */4 * * *'
+on: [push]
 jobs:
   build:
-    if: github.repository == 'etclabscore/discv4-dns-lists'
+    if: github.repository == 'meowsbits/discv4-dns-lists-private'
     name: Discv4-DNS-Crawler
     runs-on: ubuntu-latest
     env:
@@ -30,7 +28,7 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
       with:
-        ref: etccore
+        ref: etccore-dev-fix-push
 
     - uses: actions/checkout@v2
     - name: Checkout submodules
@@ -65,15 +63,17 @@ jobs:
       run: |
         ./ci/crawl.sh
 
+
     - name: Filter and sign
       run: |
         ./ci/filter_and_sign.sh classic kotti mordor
 
     - name: Deploy to DNS
       run: |
-        ./ci/deploy.sh classic kotti mordor
+        # ./ci/deploy.sh classic kotti mordor
+        echo Deployment.
 
     - name: Push
       run: |
-        git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
-        git push github etccore:etccore
+        git status
+        git push
