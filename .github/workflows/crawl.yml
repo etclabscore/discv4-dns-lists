@@ -2,7 +2,7 @@ name: Discv4 Crawl and DNS Update
 on: [push]
 jobs:
   build:
-    if: github.repository == 'meowsbits/discv4-dns-lists-private'
+    if: github.repository == 'etclabscore/discv4-dns-lists'
     name: Discv4-DNS-Crawler
     runs-on: ubuntu-latest
     env:
@@ -14,7 +14,6 @@ jobs:
       ETH_DNS_CLOUDFLARE_ZONEID: ${{ secrets.ETH_DNS_CLOUDFLARE_ZONEID }}
       ETH_DNS_DISCV4_KEY: ${{ secrets.ETH_DNS_DISCV4_KEY }}
       ETH_DNS_DISCV4_KEYPASS: ${{ secrets.ETH_DNS_DISCV4_KEYPASS }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
     - name: Set up Go
@@ -28,7 +27,7 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
       with:
-        ref: etccore-dev-fix-push
+        ref: etccore
 
     - uses: actions/checkout@v2
     - name: Checkout submodules
@@ -74,6 +73,11 @@ jobs:
         echo Deployment.
 
     - name: Push
+      env:
+        GITHUB_USER: meowsbits
+        GITHUB_PAT: ${{ secrets.PAT_REPO_MEOWSBITS }}
       run: |
-        git status
-        git push
+        git config --local user.name 'meows'
+        git config --local user.email 'b5c6@protonmail.com'
+        git remote set-url origin https://x-access-token:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git
+        git push origin etccore
