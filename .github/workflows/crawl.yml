@@ -30,8 +30,12 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: etccore
+        token: ${{ secrets.PAT_REPO_MEOWSBITS }}
 
     - uses: actions/checkout@v2
+      with:
+        ref: etccore
+        token: ${{ secrets.PAT_REPO_MEOWSBITS }}
     - name: Checkout submodules
       shell: bash
       run: |
@@ -79,5 +83,5 @@ jobs:
       run: |
         git config --local user.name 'meows'
         git config --local user.email 'b5c6@protonmail.com'
-        git remote set-url origin https://x-access-token:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git
+        git remote set-url origin https://meowsbits:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git
         git push origin etccore
