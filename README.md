@@ -1,8 +1,11 @@
 This repository is a downstream fork of [ethereum/discv4-dns-list](https://github.com/ethereum/discv4-dns-lists)
-which includes DNS discovery information for ETC networks.
+which includes DNS discovery information for ETC networks. The content of this repository and the associated
+live DNS ENR records are updated by a scheduled Github Action configured [here](./.github/workflows/crawl.yml), and with
+output visible under [the Actions tab](https://github.com/etclabscore/discv4-dns-lists/actions).
 
 Source for the devp2p tool mentioned below which support ETC network filters
-can be found at [etclabscore/core-geth](https://github.com/etclabscore/core-geth).
+can be found at [etclabscore/core-geth](https://github.com/etclabscore/core-geth), which is also
+referenced in this repository as a submodule at [./core-geth](./core-geth). 
 
 Rather than _ethdisco.net_, the records held under this repository are published to the __blockd.info__ DNS name.
 
