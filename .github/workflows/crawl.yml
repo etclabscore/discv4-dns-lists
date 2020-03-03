@@ -1,14 +1,14 @@
 name: Discv4 Crawl and DNS Update
 on:
   schedule:
-    - cron: '0 */4 * * *'
+    - cron: '0 */2 * * *'
 jobs:
   build:
     if: github.repository == 'etclabscore/discv4-dns-lists'
     name: Discv4-DNS-Crawler
     runs-on: ubuntu-latest
     env:
-      ETH_DNS_DISCV4_CRAWLTIME: 60m
+      ETH_DNS_DISCV4_CRAWLTIME: 30m
       ETH_DNS_DISCV4_PARENT_DOMAIN: blockd.info
       ETH_DNS_DISCV4_KEY_PATH: ./secrets/dnskey.json
       ETH_DNS_DISCV4_KEYPASS_PATH: ./secrets/dnskey_password.txt
