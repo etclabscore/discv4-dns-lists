@@ -1,5 +1,7 @@
 name: Discv4 Crawl and DNS Update
-on: [push]
+on:
+  schedule:
+    - cron: '0 */4 * * *'
 jobs:
   build:
     if: github.repository == 'etclabscore/discv4-dns-lists'
@@ -40,11 +42,12 @@ jobs:
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
         cd core-geth
         git fetch origin --tags
-        git checkout $(git describe --abbrev=0)
+        latest_tag="$(git describe --abbrev=0)"
+        git checkout ${latest_tag}
         make all
         echo "::add-path::$(pwd)/build/bin"
         cd ..
-        git diff --quiet || { git add core-geth && git -c user.name='meows' -c user.email='b5c6@protonmail.com' commit --author='crawler <>' -m "ci update (core-geth) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
+        git diff --quiet || { git add core-geth && git -c user.name='meows' -c user.email='b5c6@protonmail.com' commit --author='crawler <>' -m "ci update (core-geth:${latest_tag}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
     - name: Setup secrets
       run: |
@@ -62,19 +65,16 @@ jobs:
       run: |
         ./ci/crawl.sh
 
-
     - name: Filter and sign
       run: |
         ./ci/filter_and_sign.sh classic kotti mordor
 
     - name: Deploy to DNS
       run: |
-        # ./ci/deploy.sh classic kotti mordor
-        echo Deployment.
+        ./ci/deploy.sh classic kotti mordor
 
     - name: Push
       env:
-        GITHUB_USER: meowsbits
         GITHUB_PAT: ${{ secrets.PAT_REPO_MEOWSBITS }}
       run: |
         git config --local user.name 'meows'
