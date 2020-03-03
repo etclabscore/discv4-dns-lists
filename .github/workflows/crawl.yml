@@ -57,21 +57,21 @@ jobs:
 
     - name: Check env and secrets
       run: |
-        ./ci/deps.sh
+        ./.ci/deps.sh
         export ETH_DNS_DISCV4_KEY_PUBLICINFO="$(cat $ETH_DNS_DISCV4_KEYPASS_PATH | ethkey inspect $ETH_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
         echo "$ETH_DNS_DISCV4_KEY_PUBLICINFO"
 
     - name: Crawl
       run: |
-        ./ci/crawl.sh
+        ./.ci/crawl.sh
 
     - name: Filter and sign
       run: |
-        ./ci/filter_and_sign.sh classic kotti mordor
+        ./.ci/filter_and_sign.sh classic kotti mordor
 
     - name: Deploy to DNS
       run: |
-        ./ci/deploy.sh classic kotti mordor
+        ./.ci/deploy.sh classic kotti mordor
 
     - name: Push
       env:
