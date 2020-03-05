@@ -5,7 +5,7 @@ output visible under [the Actions tab](https://github.com/etclabscore/discv4-dns
 
 Source for the devp2p tool mentioned below which support ETC network filters
 can be found at [etclabscore/core-geth](https://github.com/etclabscore/core-geth), which is also
-referenced in this repository as a submodule at [./core-geth](./core-geth). 
+referenced in this repository as a submodule at `./core-geth`. 
 
 Rather than _ethdisco.net_, the records held under this repository are published to the __blockd.info__ DNS name.
 
