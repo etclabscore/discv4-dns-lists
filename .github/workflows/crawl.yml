@@ -85,3 +85,11 @@ jobs:
         git config --local user.email 'b5c6@protonmail.com'
         git remote set-url origin https://meowsbits:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git
         git push origin etccore
+    
+    - name: HandleIfFailure
+      if: failure()
+      uses: JasonEtco/create-an-issue@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        filename: .github/issue-on-failure.md
