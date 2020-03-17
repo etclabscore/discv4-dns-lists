@@ -46,6 +46,8 @@ jobs:
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
         cd core-geth
         git fetch origin --tags
+        git checkout master
+        git pull origin master
         latest_tag="$(git describe --abbrev=0)"
         git checkout ${latest_tag}
         make all
