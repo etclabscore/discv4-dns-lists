@@ -1,5 +1,5 @@
 This repository is a downstream fork of [ethereum/discv4-dns-list](https://github.com/ethereum/discv4-dns-lists)
-which includes DNS discovery information for ETC networks. The content of this repository and the associated
+that includes DNS discovery information for ETC networks. The content of this repository and the associated
 live DNS ENR records are updated by a scheduled Github Action configured [here](./.github/workflows/crawl.yml), and with
 output visible under [the Actions tab](https://github.com/etclabscore/discv4-dns-lists/actions).
 
