@@ -1,11 +1,6 @@
 ---
 title: {{ action }} Failed
-assignees: 
-  - meowsbits
-  - belfordz
-  - shanejonas
-  - chunfuyang
-  - tzdybal
+assignees: meowsbits
 labels: bug
 ---
 
