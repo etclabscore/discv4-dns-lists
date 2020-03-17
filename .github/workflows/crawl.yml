@@ -49,7 +49,7 @@ jobs:
         git fetch origin --tags
         git checkout master
         git pull origin master
-        latest_tag="$(git describe --abbrev=0)"
+        latest_tag="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
         git checkout ${latest_tag}
         make all
         echo "::add-path::$(pwd)/build/bin"
