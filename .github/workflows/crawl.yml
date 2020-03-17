@@ -45,10 +45,8 @@ jobs:
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
         cd core-geth
-        git fetch origin
-        git fetch origin --tags
-        git checkout master
-        git pull origin master
+        git fetch
+        git fetch --tags
         latest_tag="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
         git checkout ${latest_tag}
         make all
