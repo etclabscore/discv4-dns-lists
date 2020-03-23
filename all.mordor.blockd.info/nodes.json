@@ -2,33 +2,25 @@
     "18f0c2f0c940b1fd08a815aab176f3ccab14bfb8bb28bfdbc9237b8f5666d31d": {
         "seq": 4,
         "record": "enr:-Je4QCXWZv7XqXFzpp8BEiTwlsYwU1Fp1K28bykTXsRS96UrdX_jboW7yLnrVIzD0ZXKA03DdPgVUCH3C1XirCSMXbYEg2V0aMfGhPQvVTmAgmlkgnY0gmlwhANbP36Jc2VjcDI1NmsxoQI3aooEEvCfQUnohG81bQCL87jcizA40JZSvoTyHkibkYN0Y3CCdl-DdWRwgnZf",
-        "score": 133,
+        "score": 136,
         "firstResponse": "2020-03-14T10:56:05Z",
-        "lastResponse": "2020-03-23T20:10:59Z",
-        "lastCheck": "2020-03-23T20:10:59Z"
+        "lastResponse": "2020-03-23T22:44:23Z",
+        "lastCheck": "2020-03-23T22:44:23Z"
     },
     "3b3fc9b2b9a0d9c217193c0e6d1f02108966845d993ae6993bfff40282e6efea": {
         "seq": 24,
         "record": "enr:-Je4QHntKHB2SXUkBXfo-ZcCHXonnFcXnU1bapzyisKnGyI1UOdS9TQTv42_0X3Ng10iohJekjA9qQ_Kn15Xb5APcLAYg2V0aMfGhPQvVTmAgmlkgnY0gmlwhDOevyuJc2VjcDI1NmsxoQIVtq5Onhh3Lyl8kNg2RbD721ZmfOLXR9bVdbIde2DC04N0Y3CCoRODdWRwgqET",
-        "score": 283,
+        "score": 284,
         "firstResponse": "2020-03-01T12:35:51Z",
-        "lastResponse": "2020-03-23T20:20:14Z",
-        "lastCheck": "2020-03-23T20:20:14Z"
+        "lastResponse": "2020-03-23T22:20:08Z",
+        "lastCheck": "2020-03-23T22:20:08Z"
     },
     "61904c8768209b4c9adcfe0becf770286eb7979f7ab041bacc5356417fbbff42": {
         "seq": 4,
         "record": "enr:-Je4QJon1mYrSKWrqzuplM-TZwfkHwY868EAQefqWqUFftsUZKZ_9kMJEWnw7ZtQ2n7_YH1NgYH2-cWivzUyK_5m1Z8Eg2V0aMfGhPQvVTmAgmlkgnY0gmlwhDOevmOJc2VjcDI1NmsxoQJlG0hLZSwHxyrev6r4vCvZW0ILFpUu8952qcAO9j8HzIN0Y3CCsm6DdWRwgrJu",
-        "score": 308,
+        "score": 309,
         "firstResponse": "2020-03-01T16:03:12Z",
-        "lastResponse": "2020-03-23T20:41:27Z",
-        "lastCheck": "2020-03-23T20:41:27Z"
-    },
-    "ca461243acdf30f3540a45ded5a8facc07db481b4dba2cc6e88e8de08105d50c": {
-        "seq": 636,
-        "record": "enr:-KG4QNa-WGHRvtY3pkW3hmy1aJpAmDPv9RDx63J5oM7zmVXhR1P5WJl7B61PBQJRBQi7Fj-xDSdV2kriB2xIKxMvRXeCAnyDZXRoysmEF1eCqoMEmLuCaWSCdjSCaXCEneaYV4NsZXPAiXNlY3AyNTZrMaEDZCz5ZQ3Yhp1CUl2_aFgBLjtNZPR15zOEerb3dCNBpDmDdGNwgnZfg3VkcIJ2Xw",
-        "score": 1,
-        "firstResponse": "2020-03-20T16:19:00Z",
-        "lastResponse": "2020-03-23T16:54:24Z",
-        "lastCheck": "2020-03-23T20:55:40Z"
+        "lastResponse": "2020-03-23T22:30:16Z",
+        "lastCheck": "2020-03-23T22:30:16Z"
     }
 }
