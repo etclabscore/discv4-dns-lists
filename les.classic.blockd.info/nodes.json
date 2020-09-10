@@ -2,33 +2,25 @@
     "19f7695546b411b01df3378a710083689fc871b99daf4479e15714d792bbc6ec": {
         "seq": 4,
         "record": "enr:-J-4QO8SdkA8lkqfUX2K28Cvi8qPR8_Vx796ux6XKC2pp4EHfv5kH5WajnCpvWjZGSrRv3YLPeKIEH0KOEqpdO6aUh0Eg2V0aMrJhPxk7ASDEYwwgmlkgnY0gmlwhJuKoeuDbGVzwIlzZWNwMjU2azGhAmP5jnp3e9rwFQlL2V8L5gVv08TXeMQr3_uuMQJKuPtag3RjcIJ2X4N1ZHCCdl8",
-        "score": 12,
+        "score": 6,
         "firstResponse": "2020-09-03T15:32:21Z",
         "lastResponse": "2020-09-09T20:17:56Z",
-        "lastCheck": "2020-09-10T02:18:24Z"
+        "lastCheck": "2020-09-10T04:17:33Z"
     },
     "7ca04b2169edb5084f2d438e11d8cccd1dc03b52ab0f3739b5144a9d95c1dc36": {
         "seq": 4,
         "record": "enr:-J-4QFrOaJLlzt5Y-KiyCCqmvs02L_s2cHv5Julfbx-0f0m8WBAstlQaPJr_fkdnPQg_2AvpgofXKbj69yWUAcSdZ5oEg2V0aMrJhPxk7ASDEYwwgmlkgnY0gmlwhC1NzDuDbGVzwIlzZWNwMjU2azGhAxSS7eki0D9fl9_mwP7DzNNgblJa5lKn-YdmGsrJe5mNg3RjcIJ2X4N1ZHCCdl8",
-        "score": 4,
+        "score": 2,
         "firstResponse": "2020-09-04T19:21:13Z",
         "lastResponse": "2020-09-09T18:56:00Z",
-        "lastCheck": "2020-09-10T02:55:30Z"
+        "lastCheck": "2020-09-10T04:56:22Z"
     },
     "b38cdcfeae50103357f768a84d9995af73fd59d127396a60dd5799c03479f649": {
         "seq": 4,
         "record": "enr:-J-4QGVUG1aMLkMF6YUmWBsgOeJDMLp1OLNub5dr10cUUrnjLxcqV-GpBvOIWxCS3RO5OUWT8N8eUO5YFBn2kGdmARMEg2V0aMrJhPxk7ASDEYwwgmlkgnY0gmlwhC1NpjSDbGVzwIlzZWNwMjU2azGhA8HM3f6r3wxWnIHdvEs7tdK_GYZ16RAqOin7rqHVYODDg3RjcIJ2X4N1ZHCCdl8",
-        "score": 79,
+        "score": 80,
         "firstResponse": "2020-09-04T14:44:37Z",
-        "lastResponse": "2020-09-10T03:15:07Z",
-        "lastCheck": "2020-09-10T03:15:07Z"
-    },
-    "d45d7aa11b4692b8ace3d6ed23b0c18b09b62c72dde6a2cdd539f11f538979c4": {
-        "seq": 4,
-        "record": "enr:-J-4QPWAqnybwCowcb4zR-99tqxq2Ea7Y4I3oaaXxAt0_5mJaO-lxUkV35cbsXCwivol_IrWQoWeoiORW1kTmOd5vioEg2V0aMrJhPxk7ASDEYwwgmlkgnY0gmlwhI2kO2qDbGVzwIlzZWNwMjU2azGhA4r0gZpawzPRt5SYqrVsbStoLmY8y5MszWGRJmPHEhbEg3RjcIJ2X4N1ZHCCdl8",
-        "score": 1,
-        "firstResponse": "2020-09-03T23:18:07Z",
-        "lastResponse": "2020-09-09T15:28:32Z",
-        "lastCheck": "2020-09-10T03:25:22Z"
+        "lastResponse": "2020-09-10T05:16:08Z",
+        "lastCheck": "2020-09-10T05:16:08Z"
     }
 }
