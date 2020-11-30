@@ -87,6 +87,7 @@ jobs:
         git remote set-url origin https://meowsbits:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git
         git push origin etccore
     
+    - uses: actions/checkout@v2
     - name: HandleIfFailure
       if: failure()
       uses: JasonEtco/create-an-issue@v2
