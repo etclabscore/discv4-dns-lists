@@ -1,6 +1,7 @@
 ---
 title: {{ action }} Failed
-assignees: meowsbits
+assignees: 
+  - meowsbits
 labels: bug
 ---
 
