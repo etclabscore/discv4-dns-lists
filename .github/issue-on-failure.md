@@ -1,7 +1,5 @@
 ---
 title: {{ action }} Failed
-assignees: 
-  - meowsbits
 labels: bug
 ---
 
