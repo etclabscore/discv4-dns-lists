@@ -1,6 +1,7 @@
 ---
-title: {{ action }} Failed
-labels: bug
+title: 'Cron DiscV4 DNS Crawler Failed'
+assignees: 'meowsbits'
+labels: 'bug'
 ---
 
 - Event : {{ event }}
