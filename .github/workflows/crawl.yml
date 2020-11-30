@@ -16,7 +16,6 @@ jobs:
       ETH_DNS_CLOUDFLARE_ZONEID: ${{ secrets.ETH_DNS_CLOUDFLARE_ZONEID }}
       ETH_DNS_DISCV4_KEY: ${{ secrets.ETH_DNS_DISCV4_KEY }}
       ETH_DNS_DISCV4_KEYPASS: ${{ secrets.ETH_DNS_DISCV4_KEYPASS }}
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
     steps:
     - name: Set up Go
@@ -51,7 +50,7 @@ jobs:
         latest_tag="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
         git checkout ${latest_tag}
         make all
-        echo "::add-path::$(pwd)/build/bin"
+        echo "$(pwd)/build/bin" >> $GITHUB_PATH
         cd ..
         git diff --quiet || { git add core-geth && git -c user.name='meows' -c user.email='b5c6@protonmail.com' commit --author='crawler <>' -m "ci update (core-geth:${latest_tag}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
