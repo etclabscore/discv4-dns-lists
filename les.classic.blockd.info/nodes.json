@@ -1,26 +1,34 @@
 {
+    "242254cc4c1d43a511d9282f4db42170ea25f97866915120fe731dde06805d0f": {
+        "seq": 113,
+        "record": "enr:-Ka4QEJdm5pR5Eoq0_9nPvfEt1l__b9Ez6V5_tB1E6bLcfXdERsSzWNeCJDz4k52CmA55gI8wOiLT56p3rpqiqDKXF1xg2V0aMrJhPxk7ASDEYwwgmlkgnY0gmlwhDa0jZuDbGVzwQGJc2VjcDI1NmsxoQMFsDJBuuKhdTSk_6AF0HXjiGj4nG25Ww4InGf_bT6e04RzbmFwwIN0Y3CCdl-DdWRwgnZf",
+        "score": 1606,
+        "firstResponse": "2020-01-24T04:17:24Z",
+        "lastResponse": "2021-08-13T16:42:50Z",
+        "lastCheck": "2021-08-13T16:42:50Z"
+    },
     "79d80ac69f06e1660fce87b9790d2e5d52d25e32d4b2c13ac4c1f4277d2e979e": {
         "seq": 5379,
         "record": "enr:-J-4QLFVcFYmqsImKNSzQQxpV8Q5wI7wRn9yka-fcoV7FZRuR3DzXTdjD9WQcYknd0ExCBi9XcKGjsWP9ZIAeTj3mbSCFQODZXRox8aED2vxh4CCaWSCdjSCaXCEtaTS5INsZXPBAYlzZWNwMjU2azGhA2VkvpYU8EpZLZsgwk54KbTz84Ip2YyXdMaQx_69CynIg3RjcIIhVoN1ZHCCIVY",
-        "score": 54,
+        "score": 55,
         "firstResponse": "2021-06-12T06:36:48Z",
-        "lastResponse": "2021-08-13T13:48:14Z",
-        "lastCheck": "2021-08-13T13:48:14Z"
+        "lastResponse": "2021-08-13T17:55:44Z",
+        "lastCheck": "2021-08-13T17:55:44Z"
     },
     "aeb4f831e68e83fc54836afdf209a229baaffeb0c14ce88c175fb83e6d0bc4b0": {
         "seq": 2,
         "record": "enr:-Ka4QDsqYHL3Qc3CrVbrhngEcFjf0qHjOlgLuHsLAyG1Qu0oWAsZeBzw5tUJVOteUEaWz5HiKSoqwBAfxt_b-gsAA-QCg2V0aMrJhPxk7ASDEYwwgmlkgnY0gmlwhLI-xeiDbGVzwQGJc2VjcDI1NmsxoQM9o0q6u7WAmyLlFIG200JtoUnxeKFoq-tQjf23AcKB0IRzbmFwwIN0Y3CCdl-DdWRwgnZf",
-        "score": 54,
+        "score": 55,
         "firstResponse": "2021-08-05T22:14:16Z",
-        "lastResponse": "2021-08-13T14:25:48Z",
-        "lastCheck": "2021-08-13T14:25:48Z"
+        "lastResponse": "2021-08-13T18:38:08Z",
+        "lastCheck": "2021-08-13T18:38:08Z"
     },
     "ccbd93de03226a2c60ace2cead816ee68fce25a6f8e2aeea3adf7c17f00d8ba5": {
         "seq": 623,
         "record": "enr:-KW4QDXPnipzlQj4vc0K95HEZ-6bXmCBJ9QViRqtH3ToQlV1Oh4Az8LEU5ImxTn8GJ1JerB98CAZ_ENkl2tCuB1kEoCCAm-DZXRox8aED2vxh4CCaWSCdjSCaXCEX9l1H4NsZXPBAYlzZWNwMjU2azGhAjRvjlYcCi4CylFmsWKjH0AljvEu4lG1tx0M4zKOefpChHNuYXDAg3RjcIJ2AIN1ZHCCdgA",
-        "score": 333,
+        "score": 334,
         "firstResponse": "2020-11-06T17:59:19Z",
-        "lastResponse": "2021-08-13T14:48:44Z",
-        "lastCheck": "2021-08-13T14:48:44Z"
+        "lastResponse": "2021-08-13T19:03:40Z",
+        "lastCheck": "2021-08-13T19:03:40Z"
     }
 }
