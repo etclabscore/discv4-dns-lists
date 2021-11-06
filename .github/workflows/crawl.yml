@@ -51,12 +51,14 @@ jobs:
         cd core-geth
         git fetch
         git fetch --tags
-        latest_tag="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
-        git checkout ${latest_tag}
+        # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
+        # git checkout ${checkout_ref}
+        checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/master)"
+        git checkout ${checkout_ref}
         make all
         echo "$(pwd)/build/bin" >> $GITHUB_PATH
         cd ..
-        git diff --quiet || { git add core-geth && git -c user.name='meows' -c user.email='b5c6@protonmail.com' commit --author='crawler <>' -m "ci update (core-geth:${latest_tag}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
+        git diff --quiet || { git add core-geth && git -c user.name='meows' -c user.email='b5c6@protonmail.com' commit --author='crawler <>' -m "ci update (core-geth:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
     - name: Setup secrets
       run: |
