@@ -1,26 +1,18 @@
 {
-    "298636b646372e5125a6f0710ddfced998428446551cf1df10d9544167be1e8a": {
-        "seq": 1640750950398,
-        "record": "enr:-Ky4QHZywr6SVYYjcPUecaHV7S3T8rxnnLYOmugqG256wkDhPAEX4ZWkFzjzu0-uGqMkVUYHoKt4WmPF5tcJjCb5b--GAX4EYKf-g2V0aMrJhPxk7ASDEYwwgmlkgnY0gmlwhEEVxBGDbGVzwQGJc2VjcDI1NmsxoQI2zzpZxDF5qLGzZarbS-Yrt7eBzN8NNGJL-vM6mPqlYYRzbmFwwIN0Y3CCdmKDdWRwgnZi",
-        "score": 1,
-        "firstResponse": "2021-12-29T07:36:39Z",
-        "lastResponse": "2021-12-29T07:36:39Z",
-        "lastCheck": "2021-12-29T07:36:39Z"
-    },
     "79d80ac69f06e1660fce87b9790d2e5d52d25e32d4b2c13ac4c1f4277d2e979e": {
         "seq": 191,
         "record": "enr:-J64QLoYbZ2sb9pIdYTLtqC3trRvqmMwPlmKWUI1dMDiB8KXLXZ2jpNvKoIap_NmAtigrvknlPlVUTVSGtyLFGW0_qKBv4NldGjHxoQPa_GHgIJpZIJ2NIJpcIS1pMJfg2xlc8EBiXNlY3AyNTZrMaEDZWS-lhTwSlktmyDCTngptPPzginZjJd0xpDH_r0LKciDdGNwgiFWg3VkcIIhVg",
-        "score": 104,
+        "score": 105,
         "firstResponse": "2021-11-13T15:19:54Z",
-        "lastResponse": "2021-12-29T08:41:23Z",
-        "lastCheck": "2021-12-29T08:41:23Z"
+        "lastResponse": "2021-12-29T14:40:26Z",
+        "lastCheck": "2021-12-29T14:40:26Z"
     },
     "ccbd93de03226a2c60ace2cead816ee68fce25a6f8e2aeea3adf7c17f00d8ba5": {
-        "seq": 904,
-        "record": "enr:-KW4QOD-cIJ803whJz79lKAOqOnN_RsU4dWOEJ5b0fLakYI3EB8ibgA9g-VO_Y__7h1LmHqYMzGOg9Z9AFByjdYOiCiCA4iDZXRox8aED2vxh4CCaWSCdjSCaXCEX9l1H4NsZXPBAYlzZWNwMjU2azGhAjRvjlYcCi4CylFmsWKjH0AljvEu4lG1tx0M4zKOefpChHNuYXDAg3RjcIJ2AIN1ZHCCdgA",
-        "score": 811,
+        "seq": 906,
+        "record": "enr:-KW4QP_wjMGixrcpji84xRE5M7FAf8svVHNVb_AwkBCZ4apnCSFOuwpy6gTGaAt3xAJPIo_oaPAdwmLFBD3DzFSyXxCCA4qDZXRox8aED2vxh4CCaWSCdjSCaXCEX9l1H4NsZXPBAYlzZWNwMjU2azGhAjRvjlYcCi4CylFmsWKjH0AljvEu4lG1tx0M4zKOefpChHNuYXDAg3RjcIJ2AIN1ZHCCdgA",
+        "score": 812,
         "firstResponse": "2020-11-06T17:59:19Z",
-        "lastResponse": "2021-12-29T10:10:38Z",
-        "lastCheck": "2021-12-29T10:10:38Z"
+        "lastResponse": "2021-12-29T16:02:21Z",
+        "lastCheck": "2021-12-29T16:02:21Z"
     }
 }
