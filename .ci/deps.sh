@@ -5,6 +5,7 @@ set -e
 # Check programs we depend on.
 command -v devp2p >/dev/null 2>&1 && echo "OK: devp2p command in PATH" || { echo "Please install devp2p"; exit 1; }
 command -v ethkey >/dev/null 2>&1 && echo "OK: ethkey command in PATH" || { echo "Please install ethkey"; exit 1; }
+command -v jq >/dev/null 2>&1 && echo "OK: jq command in PATH" || { echo "Please install jq"; exit 1; }
 
 # Check that we have key and keypass file.
 if [ ! -f $ETH_DNS_DISCV4_KEY_PATH ] || [ ! -f $ETH_DNS_DISCV4_KEYPASS_PATH ]; then

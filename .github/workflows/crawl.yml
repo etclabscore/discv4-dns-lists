@@ -30,6 +30,8 @@ jobs:
 
     - run: go version
 
+    - run: apt-get install -y jq
+
     - name: Check out code
       uses: actions/checkout@v2
       with:
@@ -71,6 +73,15 @@ jobs:
         ./.ci/deps.sh
         export ETH_DNS_DISCV4_KEY_PUBLICINFO="$(cat $ETH_DNS_DISCV4_KEYPASS_PATH | ethkey inspect $ETH_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
         echo "$ETH_DNS_DISCV4_KEY_PUBLICINFO"
+
+    - name: Condense Classic (ETC) nodes list
+      run: |
+        cat \
+          all.classic.blockd.info/nodes.json \
+          all.kotti.blockd.info/nodes.json \
+          all.mordor.blockd.info/nodes.json \
+          | jq -s add \
+          > all.json
 
     - name: Crawl
       run: |
