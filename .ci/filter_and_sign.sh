@@ -9,13 +9,13 @@ for network in "$@"; do
     echo "Filter: $network"
    
     mkdir -p "all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}"
-    devp2p nodeset filter all.json -limit 200 -eth-network "$network" >"all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+    devp2p nodeset filter all.json -limit 300 -eth-network "$network" >"all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
 
     mkdir -p "les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}"
-    devp2p nodeset filter all.json -limit 200 -les-server -eth-network "$network" >"les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+    devp2p nodeset filter all.json -limit 300 -les-server -eth-network "$network" >"les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
 
     mkdir -p "snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}"
-    devp2p nodeset filter all.json -limit 200 -snap -eth-network "$network" >"snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+    devp2p nodeset filter all.json -limit 300 -snap -eth-network "$network" >"snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
 
     echo "Sign: $network"
 
