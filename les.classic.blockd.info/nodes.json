@@ -1,26 +1,34 @@
 {
+    "1e1ea8b3d566d2761116249948551cae0e4b169d04ba8323807f74c05bfd5fbc": {
+        "seq": 1668697874358,
+        "record": "enr:-Ky4QJi3KNXtCECnxUuk1YBSghY5FeypzRPLW7Dm546WPLhIS4ro6aP0WCdRuuMSjq5MDpAHbMTk5NWTn-o8BLkXvDqGAYSGJN-2g2V0aMrJhPxk7ASDEYwwgmlkgnY0gmlwhDS7zxuDbGVzwQGJc2VjcDI1NmsxoQKEmdoDxH1jeyDu4k7sPDVsmi5hSNb-JcoZXHlJq47CwIRzbmFwwIN0Y3CCdl-DdWRwgnZf",
+        "score": 1,
+        "firstResponse": "2022-11-17T16:20:10Z",
+        "lastResponse": "2022-11-17T16:20:10Z",
+        "lastCheck": "2022-11-17T16:20:10Z"
+    },
     "355de3baf5ecee408ef1753696eaf828cd91926cc531bbcec19fa4312cac2321": {
         "seq": 1668510582503,
         "record": "enr:-Ky4QE9SqaU0x76HshunQ136D-cq3AppRAOheyyEhfxedpQCI2Q3gJmxyMviKfJYsHzpXTn94ByY-LuYif8pGNgCCwuGAYR6-wbng2V0aMrJhPxk7ASDEYwwgmlkgnY0gmlwhFvwi6GDbGVzwQGJc2VjcDI1NmsxoQPurUAgWPCQ3bWdEb-uBKYwR6Tzh3NmvilkuxqZpVf2wIRzbmFwwIN0Y3CCdmCDdWRwgnZg",
-        "score": 7,
+        "score": 8,
         "firstResponse": "2022-11-16T12:09:57Z",
-        "lastResponse": "2022-11-17T12:11:03Z",
-        "lastCheck": "2022-11-17T12:11:03Z"
+        "lastResponse": "2022-11-17T16:08:43Z",
+        "lastCheck": "2022-11-17T16:08:43Z"
     },
     "745b0a54f0a22a5e3addb43d5c55aa35affe5595b1aa04a09557a12e3aae541f": {
         "seq": 1668248553152,
         "record": "enr:-Ky4QJWMO2tKnpINCx1roXT-OfJVXWifk6qCV6FjOcaZX2DlT86kTndBQw_HFqz46EWSlUtl6_5SEHI6YStyrEW6cHOGAYRrXMbAg2V0aMrJhPxk7ASDEYwwgmlkgnY0gmlwhF6ckLmDbGVzwQGJc2VjcDI1NmsxoQPHcwM2ugG7tyN0i6RubR8lmNs3g0mePWvZj_gRWf7cCoRzbmFwwIN0Y3CCdl-DdWRwgnZf",
-        "score": 5,
+        "score": 6,
         "firstResponse": "2022-11-16T00:41:04Z",
-        "lastResponse": "2022-11-17T12:14:28Z",
-        "lastCheck": "2022-11-17T12:14:28Z"
+        "lastResponse": "2022-11-17T16:12:04Z",
+        "lastCheck": "2022-11-17T16:12:04Z"
     },
     "ccbd93de03226a2c60ace2cead816ee68fce25a6f8e2aeea3adf7c17f00d8ba5": {
         "seq": 1572,
         "record": "enr:-KW4QIpZT9RQCz_PM0y32OTSecYRz-9terxZS9BVDeA_THSSJlcfw26xFLo9iCVEB0Yca1887RLG-8XqW7EEGPsPxrGCBiSDZXRox8aEf9G7JYCCaWSCdjSCaXCEX9l1H4NsZXPBAYlzZWNwMjU2azGhAjRvjlYcCi4CylFmsWKjH0AljvEu4lG1tx0M4zKOefpChHNuYXDAg3RjcIJ2AIN1ZHCCdgA",
-        "score": 853,
+        "score": 854,
         "firstResponse": "2020-11-06T17:59:19Z",
-        "lastResponse": "2022-11-17T12:19:13Z",
-        "lastCheck": "2022-11-17T12:19:13Z"
+        "lastResponse": "2022-11-17T16:16:27Z",
+        "lastCheck": "2022-11-17T16:16:27Z"
     }
 }
