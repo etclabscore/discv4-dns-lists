@@ -28,20 +28,20 @@ for network in "$@"; do
     devp2p nodeset filter all.json -eth-network "$network" >"all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json"
 
     # sort nodes by lastResponse and score and limit the output number
-    cat "all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json" | jq '[to_entries | group_by(.value.lastResponse, .value.score) | reverse | limit('${LIMIT_OUTPUT_SIZE_MAP["${network}_all"]}'; .[]) | from_entries]' > "all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+    cat "all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json" | jq 'to_entries | sort_by(.value.lastResponse, .value.score) | reverse | .[:'${LIMIT_OUTPUT_SIZE_MAP["${network}_all"]}'] | from_entries' > "all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
 
 
     mkdir -p "les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}"
     devp2p nodeset filter all.json -les-server -eth-network "$network" >"les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json"
 
     # sort nodes by lastResponse and score and limit the output number
-    cat "les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json" | jq '[to_entries | group_by(.value.lastResponse, .value.score) | reverse | limit('${LIMIT_OUTPUT_SIZE_MAP["${network}_les"]}'; .[]) | from_entries]' > "les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+    cat "les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json" | jq 'to_entries | sort_by(.value.lastResponse, .value.score) | reverse | .[:'${LIMIT_OUTPUT_SIZE_MAP["${network}_les"]}'] | from_entries' > "les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
 
     mkdir -p "snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}"
     devp2p nodeset filter all.json -snap -eth-network "$network" >"snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json"
 
     # sort nodes by lastResponse and score and limit the output number
-    cat "snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json" | jq '[to_entries | group_by(.value.lastResponse, .value.score) | reverse | limit('${LIMIT_OUTPUT_SIZE_MAP["${network}_snap"]}'; .[]) | from_entries]' > "snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+    cat "snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json" | jq 'to_entries | sort_by(.value.lastResponse, .value.score) | reverse | .[:'${LIMIT_OUTPUT_SIZE_MAP["${network}_snap"]}'] | from_entries' > "snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
 
     echo "Sign: $network"
 
