@@ -4,18 +4,44 @@ set -e
 
 proto_groups=(all les snap)
 
+# CloudFlare limits the number od DNS records per zone to 3500 for our account.
+# For this reason we need to limit the number of nodes per network (classic|mordor) and per proto (all|les|snap).
+# https://developers.cloudflare.com/dns/troubleshooting/faq/#does-cloudflare-limit-number-of-dns-records-a-domain-can-have
+
+declare -A LIMIT_OUTPUT_SIZE_MAP
+
+# Classic
+LIMIT_OUTPUT_SIZE_MAP["classic_all"]=1400
+LIMIT_OUTPUT_SIZE_MAP["classic_snap"]=1400
+LIMIT_OUTPUT_SIZE_MAP["classic_les"]=50
+
+# Mordor
+LIMIT_OUTPUT_SIZE_MAP["mordor_all"]=300
+LIMIT_OUTPUT_SIZE_MAP["mordor_snap"]=300
+LIMIT_OUTPUT_SIZE_MAP["mordor_les"]=50
+
 for network in "$@"; do
 
     echo "Filter: $network"
-   
+
     mkdir -p "all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}"
-    devp2p nodeset filter all.json -eth-network "$network" >"all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+    devp2p nodeset filter all.json -eth-network "$network" >"all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json"
+
+    # sort nodes by lastResponse and score and limit the output number
+    cat "all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json" | jq '[to_entries | group_by(.value.lastResponse, .value.score) | reverse | limit('${LIMIT_OUTPUT_SIZE_MAP["${network}_all"]}'; .[]) | from_entries]' > "all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+
 
     mkdir -p "les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}"
-    devp2p nodeset filter all.json -les-server -eth-network "$network" >"les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+    devp2p nodeset filter all.json -les-server -eth-network "$network" >"les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json"
+
+    # sort nodes by lastResponse and score and limit the output number
+    cat "les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json" | jq '[to_entries | group_by(.value.lastResponse, .value.score) | reverse | limit('${LIMIT_OUTPUT_SIZE_MAP["${network}_les"]}'; .[]) | from_entries]' > "les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
 
     mkdir -p "snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}"
-    devp2p nodeset filter all.json -snap -eth-network "$network" >"snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+    devp2p nodeset filter all.json -snap -eth-network "$network" >"snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json"
+
+    # sort nodes by lastResponse and score and limit the output number
+    cat "snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.all.json" | jq '[to_entries | group_by(.value.lastResponse, .value.score) | reverse | limit('${LIMIT_OUTPUT_SIZE_MAP["${network}_snap"]}'; .[]) | from_entries]' > "snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
 
     echo "Sign: $network"
 
