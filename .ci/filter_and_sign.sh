@@ -11,13 +11,13 @@ proto_groups=(all les snap)
 declare -A LIMIT_OUTPUT_SIZE_MAP
 
 # Classic
-LIMIT_OUTPUT_SIZE_MAP["classic_all"]=1400
-LIMIT_OUTPUT_SIZE_MAP["classic_snap"]=1400
+LIMIT_OUTPUT_SIZE_MAP["classic_all"]=1300
+LIMIT_OUTPUT_SIZE_MAP["classic_snap"]=1300
 LIMIT_OUTPUT_SIZE_MAP["classic_les"]=50
 
 # Mordor
-LIMIT_OUTPUT_SIZE_MAP["mordor_all"]=300
-LIMIT_OUTPUT_SIZE_MAP["mordor_snap"]=300
+LIMIT_OUTPUT_SIZE_MAP["mordor_all"]=200
+LIMIT_OUTPUT_SIZE_MAP["mordor_snap"]=200
 LIMIT_OUTPUT_SIZE_MAP["mordor_les"]=50
 
 for network in "$@"; do
@@ -59,9 +59,9 @@ for network in "$@"; do
 
     ETH_DNS_DISCV4_KEY_PUBLICINFO="$(cat $ETH_DNS_DISCV4_KEYPASS_PATH | ethkey inspect $ETH_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
     git -c user.name="meows" -c user.email='b5c6@protonmail.com' commit --author "crawler <>" -m "ci update ($network) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER
-        
+
 Crawltime: $ETH_DNS_DISCV4_CRAWLTIME
 
 $ETH_DNS_DISCV4_KEY_PUBLICINFO"
-    
+
 done
