@@ -38,10 +38,6 @@ jobs:
         ref: etccore
         token: ${{ secrets.PAT_REPO }}
 
-    - uses: actions/checkout@v2
-      with:
-        ref: etccore
-        token: ${{ secrets.PAT_REPO }}
     - name: Checkout submodules
       shell: bash
       run: |
