@@ -33,7 +33,7 @@ jobs:
     - run: sudo apt-get install -y jq
 
     - name: Check out code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         ref: etccore
         token: ${{ secrets.PAT_REPO }}
@@ -99,7 +99,7 @@ jobs:
         git remote set-url origin https://ziogaschr:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git
         git push origin etccore
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: HandleIfFailure
       if: failure()
       uses: JasonEtco/create-an-issue@v2
