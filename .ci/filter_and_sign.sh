@@ -58,7 +58,7 @@ for network in "$@"; do
     done
 
     ETH_DNS_DISCV4_KEY_PUBLICINFO="$(cat $ETH_DNS_DISCV4_KEYPASS_PATH | ethkey inspect $ETH_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
-    git -c user.name="ziogaschr" -c user.email='ziogaschr@gmail.com' commit --author "crawler <>" -m "ci update ($network) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER
+    git -c user.name='github-actions[bot]' -c user.email='github-actions[bot]@users.noreply.github.com' commit --author 'crawler <>' -m "ci update ($network) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER
         
 Crawltime: $ETH_DNS_DISCV4_CRAWLTIME
 

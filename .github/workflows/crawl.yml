@@ -11,6 +11,8 @@ jobs:
     if: github.repository == 'etclabscore/discv4-dns-lists'
     name: Discv4-DNS-Crawler
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write
     env:
       ETH_DNS_DISCV4_CRAWLTIME: 30m
       ETH_DNS_DISCV4_PARENT_DOMAIN: blockd.info
@@ -23,7 +25,7 @@ jobs:
 
     steps:
     - name: Set up Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v5
       with:
         go-version: 1.22.4
       id: go
@@ -33,15 +35,10 @@ jobs:
     - run: sudo apt-get install -y jq
 
     - name: Check out code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         ref: etccore
-        token: ${{ secrets.PAT_REPO }}
 
-    - uses: actions/checkout@v2
-      with:
-        ref: etccore
-        token: ${{ secrets.PAT_REPO }}
     - name: Checkout submodules
       shell: bash
       run: |
@@ -60,7 +57,7 @@ jobs:
         make all
         echo "$(pwd)/build/bin" >> $GITHUB_PATH
         cd ..
-        git diff --quiet || { git add core-geth && git -c user.name='ziogaschr' -c user.email='ziogaschr@gmail.com' commit --author='crawler <>' -m "ci update (core-geth:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
+        git diff --quiet || { git add core-geth && git -c user.name='github-actions[bot]' -c user.email='github-actions[bot]@users.noreply.github.com' commit --author='crawler <>' -m "ci update (core-geth:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
     - name: Setup secrets
       run: |
@@ -95,15 +92,12 @@ jobs:
         ./.ci/deploy.sh classic mordor
 
     - name: Push
-      env:
-        GITHUB_PAT: ${{ secrets.PAT_REPO }}
       run: |
-        git config --local user.name 'ziogaschr'
-        git config --local user.email 'ziogaschr@gmail.com'
-        git remote set-url origin https://ziogaschr:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git
+        git config --local user.name 'github-actions[bot]'
+        git config --local user.email 'github-actions[bot]@users.noreply.github.com'
         git push origin etccore
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: HandleIfFailure
       if: failure()
       uses: JasonEtco/create-an-issue@v2
