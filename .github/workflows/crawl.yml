@@ -11,6 +11,8 @@ jobs:
     if: github.repository == 'etclabscore/discv4-dns-lists'
     name: Discv4-DNS-Crawler
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write
     env:
       ETH_DNS_DISCV4_CRAWLTIME: 30m
       ETH_DNS_DISCV4_PARENT_DOMAIN: blockd.info
@@ -36,7 +38,6 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: etccore
-        token: ${{ secrets.PAT_REPO }}
 
     - name: Checkout submodules
       shell: bash
@@ -91,12 +92,9 @@ jobs:
         ./.ci/deploy.sh classic mordor
 
     - name: Push
-      env:
-        GITHUB_PAT: ${{ secrets.PAT_REPO }}
       run: |
-        git config --local user.name 'ziogaschr'
-        git config --local user.email 'ziogaschr@gmail.com'
-        git remote set-url origin https://ziogaschr:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git
+        git config --local user.name 'github-actions[bot]'
+        git config --local user.email 'github-actions[bot]@users.noreply.github.com'
         git push origin etccore
 
     - uses: actions/checkout@v4
