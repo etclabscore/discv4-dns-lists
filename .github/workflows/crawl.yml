@@ -97,6 +97,25 @@ jobs:
         git config --local user.email 'github-actions[bot]@users.noreply.github.com'
         git push origin etccore
 
+    # --- Deploy paralelo a etcdisco.net ---
+    - name: Filter and sign for etcdisco.net
+      continue-on-error: true
+      env:
+        ETH_DNS_DISCV4_PARENT_DOMAIN: etcdisco.net
+      run: ./.ci/filter_and_sign.sh classic mordor
+
+    - name: Deploy to etcdisco.net DNS
+      continue-on-error: true
+      env:
+        ETH_DNS_DISCV4_PARENT_DOMAIN: etcdisco.net
+        CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN_ETCDISCO }}
+        ETH_DNS_CLOUDFLARE_ZONEID: ${{ secrets.ETH_DNS_CLOUDFLARE_ZONEID_ETCDISCO }}
+      run: ./.ci/deploy.sh classic mordor
+
+    - name: Push etcdisco.net changes
+      continue-on-error: true
+      run: git push origin etccore
+
     - uses: actions/checkout@v4
     - name: HandleIfFailure
       if: failure()
