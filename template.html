@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ETC DNS Node Explorer</title>
+<style>
+  :root { --bg: #0d1117; --surface: #161b22; --border: #30363d; --text: #e6edf3; --muted: #8b949e; --accent: #58a6ff; --green: #3fb950; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding: 1rem; }
+  h1 { font-size: 1.4rem; margin-bottom: 0.25rem; }
+  .subtitle { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem; }
+  .discovery-urls { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem 1rem; margin-bottom: 1rem; font-size: 0.8rem; }
+  .discovery-urls .label { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+  .discovery-urls .url-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem; }
+  .discovery-urls .url-row:last-child { margin-bottom: 0; }
+  .discovery-urls .domain-label { color: var(--muted); font-size: 0.75rem; min-width: 90px; }
+  .discovery-urls .url { font-family: 'SFMono-Regular', Consolas, monospace; color: var(--accent); word-break: break-all; }
+  .generated { color: var(--muted); font-size: 0.7rem; margin-bottom: 1rem; }
+  .controls { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem; align-items: center; }
+  .controls input[type="text"] { flex: 1; min-width: 200px; padding: 0.5rem 0.75rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.875rem; }
+  .controls input[type="text"]::placeholder { color: var(--muted); }
+  .filter-group { display: flex; gap: 0.25rem; }
+  .filter-btn { padding: 0.35rem 0.65rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; color: var(--muted); font-size: 0.8rem; cursor: pointer; transition: all 0.15s; }
+  .filter-btn:hover { border-color: var(--muted); color: var(--text); }
+  .filter-btn.active { border-color: var(--accent); color: var(--accent); }
+  .filter-label { color: var(--muted); font-size: 0.75rem; align-self: center; margin-right: 0.1rem; }
+  .stats { color: var(--muted); font-size: 0.8rem; padding: 0.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  thead { position: sticky; top: 0; z-index: 1; }
+  th { background: var(--surface); padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; white-space: nowrap; }
+  th:hover { color: var(--accent); }
+  th .sort-indicator { font-size: 0.7rem; margin-left: 0.25rem; }
+  td { padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border); word-break: break-all; }
+  tr:hover td { background: var(--surface); }
+  .enode { max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; color: var(--accent); }
+  .enode:hover { white-space: normal; }
+  .network { display: inline-block; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.75rem; font-weight: 500; }
+  .network-classic { background: #1f3d2a; color: var(--green); }
+  .network-mordor { background: #3d2a1f; color: #f0883e; }
+  .proto-tag { display: inline-block; padding: 0.1rem 0.35rem; border-radius: 3px; font-size: 0.7rem; background: var(--border); color: var(--text); margin-right: 0.2rem; }
+  .score-bar { display: inline-block; height: 4px; border-radius: 2px; background: var(--green); min-width: 2px; }
+  @media (max-width: 768px) { .enode { max-width: 150px; } }
+</style>
+</head>
+<body>
+
+<h1>ETC DNS Node Explorer</h1>
+<p class="subtitle">Ethereum Classic discv4 DNS discovery node list</p>
+
+<div class="discovery-urls">
+  <div class="label">DNS Discovery Endpoints</div>
+  <div class="url-row">
+    <span class="domain-label">blockd.info</span>
+    <span class="url" id="url-blockd"></span>
+  </div>
+  <div class="url-row">
+    <span class="domain-label">etcdisco.net</span>
+    <span class="url" id="url-etcdisco"></span>
+  </div>
+</div>
+
+<p class="generated">Generated: <span id="generated-at"></span></p>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="Search by IP, enode, node ID...">
+  <span class="filter-label">Network</span>
+  <div class="filter-group" id="network-filters">
+    <button class="filter-btn active" data-value="">All</button>
+    <button class="filter-btn" data-value="classic">Classic</button>
+    <button class="filter-btn" data-value="mordor">Mordor</button>
+  </div>
+  <span class="filter-label">Capabilities</span>
+  <div class="filter-group" id="protocol-filters">
+    <button class="filter-btn active" data-value="">All</button>
+    <button class="filter-btn" data-value="eth">eth</button>
+    <button class="filter-btn" data-value="les">les</button>
+    <button class="filter-btn" data-value="snap">snap</button>
+  </div>
+</div>
+
+<div class="stats" id="stats">Loading...</div>
+<table>
+  <thead>
+    <tr>
+      <th data-sort="id">Node ID <span class="sort-indicator"></span></th>
+      <th data-sort="ip">IP <span class="sort-indicator"></span></th>
+      <th data-sort="port">Port <span class="sort-indicator"></span></th>
+      <th data-sort="network">Network <span class="sort-indicator"></span></th>
+      <th data-sort="protocols">Capabilities <span class="sort-indicator"></span></th>
+      <th data-sort="score">Score <span class="sort-indicator"></span></th>
+      <th data-sort="lastResponse">Last Seen <span class="sort-indicator"></span></th>
+      <th data-sort="firstResponse">First Seen <span class="sort-indicator"></span></th>
+    </tr>
+  </thead>
+  <tbody id="tbody"></tbody>
+</table>
+
+<script>
+// Embedded data — replaced at build time
+const NODE_DATA = /*__NODE_DATA__*/ {};
+const DISCOVERY_URLS = /*__DISCOVERY_URLS__*/ {};
+
+const PROTO_DISPLAY = { all: 'eth', les: 'les', snap: 'snap' };
+const PROTO_FROM_DISPLAY = { eth: 'all', les: 'les', snap: 'snap' };
+
+let allNodes = [];
+let currentSort = { key: 'score', dir: -1 };
+let activeNetwork = '';
+let activeProtocol = '';
+
+function decodeEnr(record) {
+  try {
+    const raw = atob(record.replace('enr:', '').replace(/-/g, '+').replace(/_/g, '/'));
+    const bytes = new Uint8Array(raw.length);
+    for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+    return bytes;
+  } catch { return null; }
+}
+
+function extractIp(record) {
+  try {
+    const b = decodeEnr(record);
+    if (!b) return null;
+    for (let i = 0; i < b.length - 5; i++) {
+      if (b[i] === 0x84) {
+        const ip = `${b[i+1]}.${b[i+2]}.${b[i+3]}.${b[i+4]}`;
+        if (b[i+1] > 0 && b[i+1] < 255 && b[i+1] !== 127 && b[i+1] !== 0) return ip;
+      }
+    }
+    return null;
+  } catch { return null; }
+}
+
+function extractPort(record) {
+  try {
+    const b = decodeEnr(record);
+    if (!b) return null;
+    for (let i = 0; i < b.length - 3; i++) {
+      if (b[i] === 0x82) {
+        const port = (b[i+1] << 8) | b[i+2];
+        if (port > 1024 && port < 65535) return port;
+      }
+    }
+    return null;
+  } catch { return null; }
+}
+
+function loadData() {
+  const grouped = new Map();
+  for (const [key, data] of Object.entries(NODE_DATA)) {
+    const [protocol, network] = key.split('.');
+    for (const [id, info] of Object.entries(data)) {
+      const groupKey = `${id}-${network}`;
+      if (grouped.has(groupKey)) {
+        const existing = grouped.get(groupKey);
+        if (!existing.protocols.includes(protocol)) existing.protocols.push(protocol);
+        if ((info.score || 0) > existing.score) existing.score = info.score;
+        if (info.lastResponse > existing.lastResponse) existing.lastResponse = info.lastResponse;
+        if (info.firstResponse && (!existing.firstResponse || info.firstResponse < existing.firstResponse)) {
+          existing.firstResponse = info.firstResponse;
+        }
+      } else {
+        const ip = extractIp(info.record) || '?';
+        const port = extractPort(info.record) || '?';
+        grouped.set(groupKey, {
+          id: id.substring(0, 16),
+          fullId: id,
+          ip, port, network,
+          protocols: [protocol],
+          score: info.score || 0,
+          firstResponse: info.firstResponse || '',
+          lastResponse: info.lastResponse || '',
+        });
+      }
+    }
+  }
+  return Array.from(grouped.values());
+}
+
+function timeAgo(dateStr) {
+  if (!dateStr) return '?';
+  const diff = Date.now() - new Date(dateStr).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 60) return `${mins}m ago`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return `${hours}h ago`;
+  const days = Math.floor(hours / 24);
+  if (days < 30) return `${days}d ago`;
+  return `${Math.floor(days / 30)}mo ago`;
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return '?';
+  return new Date(dateStr).toISOString().replace('T', ' ').substring(0, 16);
+}
+
+function render(nodes) {
+  const tbody = document.getElementById('tbody');
+  const search = document.getElementById('search').value.toLowerCase();
+
+  let filtered = nodes.filter(n => {
+    if (activeNetwork && n.network !== activeNetwork) return false;
+    if (activeProtocol) {
+      const dataProto = PROTO_FROM_DISPLAY[activeProtocol] || activeProtocol;
+      if (!n.protocols.includes(dataProto)) return false;
+    }
+    if (search) {
+      const hay = `${n.fullId} ${n.ip} ${n.port} ${n.network} ${n.protocols.map(p => PROTO_DISPLAY[p]).join(' ')}`.toLowerCase();
+      return hay.includes(search);
+    }
+    return true;
+  });
+
+  filtered.sort((a, b) => {
+    let va = a[currentSort.key], vb = b[currentSort.key];
+    if (currentSort.key === 'protocols') { va = va.join(','); vb = vb.join(','); }
+    if (typeof va === 'string') return va.localeCompare(vb) * currentSort.dir;
+    return ((va || 0) - (vb || 0)) * currentSort.dir;
+  });
+
+  const maxScore = Math.max(...filtered.map(n => n.score), 1);
+
+  document.getElementById('stats').textContent =
+    `Showing ${filtered.length} of ${nodes.length} nodes`;
+
+  tbody.innerHTML = filtered.map(n => `<tr>
+    <td class="enode" title="${n.fullId}">${n.id}...</td>
+    <td>${n.ip}</td>
+    <td>${n.port}</td>
+    <td><span class="network network-${n.network}">${n.network}</span></td>
+    <td>${n.protocols.map(p => `<span class="proto-tag">${PROTO_DISPLAY[p]}</span>`).join('')}</td>
+    <td><span class="score-bar" style="width:${Math.max(2, n.score/maxScore*60)}px"></span> ${n.score}</td>
+    <td title="${formatDate(n.lastResponse)}">${timeAgo(n.lastResponse)}</td>
+    <td title="${formatDate(n.firstResponse)}">${timeAgo(n.firstResponse)}</td>
+  </tr>`).join('');
+}
+
+// Sort
+document.querySelectorAll('th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => {
+    const key = th.dataset.sort;
+    if (currentSort.key === key) currentSort.dir *= -1;
+    else { currentSort.key = key; currentSort.dir = -1; }
+    document.querySelectorAll('.sort-indicator').forEach(s => s.textContent = '');
+    th.querySelector('.sort-indicator').textContent = currentSort.dir === 1 ? ' \u25B2' : ' \u25BC';
+    render(allNodes);
+  });
+});
+
+// Filter buttons
+function setupFilterGroup(groupId, setter) {
+  document.querySelectorAll(`#${groupId} .filter-btn`).forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll(`#${groupId} .filter-btn`).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      setter(btn.dataset.value);
+      render(allNodes);
+    });
+  });
+}
+setupFilterGroup('network-filters', v => activeNetwork = v);
+setupFilterGroup('protocol-filters', v => activeProtocol = v);
+
+document.getElementById('search').addEventListener('input', () => render(allNodes));
+
+// Init
+document.getElementById('url-blockd').textContent = DISCOVERY_URLS.blockd || '';
+document.getElementById('url-etcdisco').textContent = DISCOVERY_URLS.etcdisco || '';
+document.getElementById('generated-at').textContent = DISCOVERY_URLS.generated || '';
+allNodes = loadData();
+document.querySelector('th[data-sort="score"] .sort-indicator').textContent = ' \u25BC';
+render(allNodes);
+</script>
+</body>
+</html>
