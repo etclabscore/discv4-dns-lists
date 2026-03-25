@@ -97,15 +97,13 @@ jobs:
         git config --local user.email 'github-actions[bot]@users.noreply.github.com'
         git push origin etccore
 
-    # --- Deploy paralelo a etcdisco.net ---
+    # --- Parallel deploy to etcdisco.net ---
     - name: Filter and sign for etcdisco.net
-      continue-on-error: true
       env:
         ETH_DNS_DISCV4_PARENT_DOMAIN: etcdisco.net
       run: ./.ci/filter_and_sign.sh classic mordor
 
     - name: Deploy to etcdisco.net DNS
-      continue-on-error: true
       env:
         ETH_DNS_DISCV4_PARENT_DOMAIN: etcdisco.net
         CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN_ETCDISCO }}
@@ -113,8 +111,17 @@ jobs:
       run: ./.ci/deploy.sh classic mordor
 
     - name: Push etcdisco.net changes
-      continue-on-error: true
       run: git push origin etccore
+
+    - name: Deploy GitHub Pages
+      if: always()
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git fetch origin gh-pages 2>/dev/null || { echo "gh-pages branch not found, skipping"; exit 0; }
+        git show origin/gh-pages:generate.sh > /tmp/generate-pages.sh
+        chmod +x /tmp/generate-pages.sh
+        /tmp/generate-pages.sh
 
     - uses: actions/checkout@v4
     - name: HandleIfFailure
