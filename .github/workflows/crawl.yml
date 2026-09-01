@@ -25,9 +25,10 @@ jobs:
 
     steps:
     - name: Set up Go
-      uses: actions/setup-go@v5
+      uses: actions/setup-go@v6
       with:
         go-version: 1.22.4
+        cache: false
       id: go
 
     - run: go version
@@ -35,7 +36,7 @@ jobs:
     - run: sudo apt-get install -y jq
 
     - name: Check out code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         ref: etccore
 
@@ -123,11 +124,36 @@ jobs:
         chmod +x /tmp/generate-pages.sh
         /tmp/generate-pages.sh
 
-    - uses: actions/checkout@v4
-    - name: HandleIfFailure
+    - name: Alert on failure
       if: failure()
-      uses: JasonEtco/create-an-issue@v2
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        filename: .github/issue-on-failure.md
+        AM_AUTH: ${{ secrets.ALERTMANAGER_BASICAUTH }}
+        AM_URL: ${{ secrets.ALERTMANAGER_URL }}
+        AM_LABELS: ${{ secrets.ALERTMANAGER_LABELS }}
+      run: |
+        if [ -z "$AM_AUTH" ] || [ -z "$AM_URL" ] || [ -z "$AM_LABELS" ]; then
+          echo "alerting is not configured; skipping" >&2
+          exit 0
+        fi
+        ends_at="$(date -u -d '+9 hours' +%Y-%m-%dT%H:%M:%SZ)"
+        run_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+        jq -n \
+          --argjson labels "$AM_LABELS" \
+          --arg ends_at "$ends_at" \
+          --arg run_url "$run_url" \
+          --arg ref "$GITHUB_REF" \
+          --arg sha "$GITHUB_SHA" \
+          '[{
+            labels: $labels,
+            annotations: {
+              summary: "Discv4 DNS crawler workflow failed",
+              run: $run_url,
+              ref: $ref,
+              sha: $sha
+            },
+            endsAt: $ends_at
+          }]' \
+          | curl -sS --fail -u "$AM_AUTH" \
+              -H 'Content-Type: application/json' \
+              -X POST "$AM_URL" \
+              -d @-
