@@ -1,90 +1,90 @@
 {
-  "a4583b16d529717bba5c58546190015ca90a75e88bc2670cac32867f2504de6b": {
-    "seq": 1692944819655,
-    "record": "enr:-KO4QE8fZ7WBpRQwovOJz5wylFqDMp1zcX-EQPRlA1AFHTM3Thznp6LeS5G2m02xyivYy1uPClbOuis6NUesg2dbAuWGAYorX-XHg2V0aMfGhDprANeAgmlkgnY0gmlwhBKjdVqJc2VjcDI1NmsxoQMRaeTEDQAUCnbSNVXaCHZMcL4419iR3kjrUURZYoa_voRzbmFwwIN0Y3CCdl-DdWRwgnZf",
-    "score": 3040,
-    "firstResponse": "2024-03-14T08:19:33Z",
-    "lastResponse": "2026-09-18T13:20:40Z",
-    "lastCheck": "2026-09-18T13:20:40Z"
-  },
-  "6590c333c1629e117c631f0b86be1f2525bb8a2a0f722dd1904943a6b7dbfa04": {
-    "seq": 1789102942913,
-    "record": "enr:-KO4QMNQJXogTS6_mXSuqwv52J9fgg22g4zJEAaaldGfMBRFezNxVCCjEHIqejdKou-FWek9Q8q8GMEXxGRrUDOFtxSGAaCO2GrBg2V0aMfGhDprANeAgmlkgnY0gmlwhAIdH3uJc2VjcDI1NmsxoQLW8uU1otGD-TC9eAkT0dQWnTR58iwpQRF9EBhNZa27YYRzbmFwwIN0Y3CCdl-DdWRwgnZf",
-    "score": 49,
-    "firstResponse": "2026-09-12T04:24:32Z",
-    "lastResponse": "2026-09-18T13:20:25Z",
-    "lastCheck": "2026-09-18T13:20:25Z"
-  },
-  "851889b5470b00d6c2d506e5a7afc975689076a5cd2d85cc13f4b9e1fbd55032": {
-    "seq": 1663077971467,
-    "record": "enr:-KO4QHJ-exmc4BXg3yWQGw4ggYMIol1CIfe7VP9CmTambHA3VCIYusflYcLWbF1fN8D9ar-3BZ0RXuZHK-F0fRB7nF6GAYM3K_YLg2V0aMfGhDprANeAgmlkgnY0gmlwhE-JQ26Jc2VjcDI1NmsxoQPlkBAcBYRGYWr5bk9cq8V-bERmzh09nBSNQb6xNWFlpoRzbmFwwIN0Y3CCdmCDdWRwgnZg",
-    "score": 2640,
-    "firstResponse": "2023-07-05T04:25:04Z",
-    "lastResponse": "2026-09-18T13:17:32Z",
-    "lastCheck": "2026-09-18T13:17:32Z"
-  },
   "55a858ba914b81c5a4237c6abbeabc6bc5e67e6f7d10195e74cbb954fb610d1b": {
     "seq": 1723719941483,
     "record": "enr:-KO4QDS-UldDu-w-ZpjPth7xenvJVQy7VOx1Zg7uPahOvZ-qMYjG8vgGvt91zXqtqGg_eS0Jf0ZXOqCuhDb2jnEkCz-GAZFVtv1rg2V0aMfGhDprANeAgmlkgnY0gmlwhFvSZTSJc2VjcDI1NmsxoQPN5DTZUOmKz5ilfswRksz5kQNATaAafFlRweXtYUebgYRzbmFwwIN0Y3CCdUyDdWRwgnVM",
-    "score": 299,
+    "score": 302,
     "firstResponse": "2024-08-17T08:33:31Z",
-    "lastResponse": "2026-09-18T13:16:34Z",
-    "lastCheck": "2026-09-18T13:16:34Z"
+    "lastResponse": "2026-09-18T19:24:47Z",
+    "lastCheck": "2026-09-18T19:24:47Z"
   },
   "58349790b56e3578356a575053f5ff3465abbcee30e4fb7c5995b96835a21450": {
     "seq": 1789115143444,
     "record": "enr:-KO4QF9AYN5zgwiBznWx5eV3XTLOJVW7j3whuvNfjq52AU4IBMqUq9b1DEqwMvQxphxrHCrcJo48aPGuHaaD0x1I3AmGAaCPkpUUg2V0aMfGhDprANeAgmlkgnY0gmlwhCigjLSJc2VjcDI1NmsxoQOwuNpXCKIqC8kumTxvuTgB0bxZVu-vPvfK_NOvIWf2NIRzbmFwwIN0Y3CCdl-DdWRwgnZf",
-    "score": 73,
+    "score": 76,
     "firstResponse": "2026-09-11T22:32:33Z",
-    "lastResponse": "2026-09-18T13:16:34Z",
-    "lastCheck": "2026-09-18T13:16:34Z"
+    "lastResponse": "2026-09-18T19:24:47Z",
+    "lastCheck": "2026-09-18T19:24:47Z"
+  },
+  "6590c333c1629e117c631f0b86be1f2525bb8a2a0f722dd1904943a6b7dbfa04": {
+    "seq": 1789102942913,
+    "record": "enr:-KO4QMNQJXogTS6_mXSuqwv52J9fgg22g4zJEAaaldGfMBRFezNxVCCjEHIqejdKou-FWek9Q8q8GMEXxGRrUDOFtxSGAaCO2GrBg2V0aMfGhDprANeAgmlkgnY0gmlwhAIdH3uJc2VjcDI1NmsxoQLW8uU1otGD-TC9eAkT0dQWnTR58iwpQRF9EBhNZa27YYRzbmFwwIN0Y3CCdl-DdWRwgnZf",
+    "score": 52,
+    "firstResponse": "2026-09-12T04:24:32Z",
+    "lastResponse": "2026-09-18T19:24:21Z",
+    "lastCheck": "2026-09-18T19:24:21Z"
+  },
+  "851889b5470b00d6c2d506e5a7afc975689076a5cd2d85cc13f4b9e1fbd55032": {
+    "seq": 1663077971467,
+    "record": "enr:-KO4QHJ-exmc4BXg3yWQGw4ggYMIol1CIfe7VP9CmTambHA3VCIYusflYcLWbF1fN8D9ar-3BZ0RXuZHK-F0fRB7nF6GAYM3K_YLg2V0aMfGhDprANeAgmlkgnY0gmlwhE-JQ26Jc2VjcDI1NmsxoQPlkBAcBYRGYWr5bk9cq8V-bERmzh09nBSNQb6xNWFlpoRzbmFwwIN0Y3CCdmCDdWRwgnZg",
+    "score": 2643,
+    "firstResponse": "2023-07-05T04:25:04Z",
+    "lastResponse": "2026-09-18T19:21:41Z",
+    "lastCheck": "2026-09-18T19:21:41Z"
   },
   "f20e8904039c57d16a3c95c18535d59e8abda17fbe21b5d9ad6067a6487c8ec8": {
     "seq": 1698403843932,
     "record": "enr:-KO4QF1n-Wyh6KDhgUfxHetZV8UDogShZr_5IinGF3Qov8MwTSO2gkZ8FO0kms-DKPepqx10A-kIA3cv_rNrFrVpOz2GAYtwwf9cg2V0aMfGhDprANeAgmlkgnY0gmlwhM-a4yWJc2VjcDI1NmsxoQPlFCdu1PwJeUyIuiYfATwwLFIdg61OcKs8xSwu2jFBloRzbmFwwIN0Y3CCdl-DdWRwgnZf",
-    "score": 56,
+    "score": 57,
     "firstResponse": "2024-01-12T08:35:54Z",
-    "lastResponse": "2026-09-18T12:56:47Z",
-    "lastCheck": "2026-09-18T12:56:47Z"
+    "lastResponse": "2026-09-18T19:01:39Z",
+    "lastCheck": "2026-09-18T19:01:39Z"
   },
-  "918b257d00fccffa4f9f9ac769abb0522f579142ef325758b31b609c4e9a36f5": {
-    "seq": 1789061412058,
-    "record": "enr:-KO4QJTQTJ3szISvRiX1uIdp-Glam3j4Ls63c56O4rxnZur2ICGy8dGp8k4j95Yq7bIGkToJa3GQcSeYBxHaPlm_WGGGAaCMXrTag2V0aMfGhDprANeAgmlkgnY0gmlwhAX8NU-Jc2VjcDI1NmsxoQIZUB1o_P6A0LF724TJ10lTqhWivuSM1PTwba01JFMhu4RzbmFwwIN0Y3CCdl-DdWRwgnZf",
-    "score": 40,
-    "firstResponse": "2026-09-11T22:49:47Z",
-    "lastResponse": "2026-09-18T12:56:39Z",
-    "lastCheck": "2026-09-18T12:56:39Z"
+  "a4583b16d529717bba5c58546190015ca90a75e88bc2670cac32867f2504de6b": {
+    "seq": 1692944819655,
+    "record": "enr:-KO4QE8fZ7WBpRQwovOJz5wylFqDMp1zcX-EQPRlA1AFHTM3Thznp6LeS5G2m02xyivYy1uPClbOuis6NUesg2dbAuWGAYorX-XHg2V0aMfGhDprANeAgmlkgnY0gmlwhBKjdVqJc2VjcDI1NmsxoQMRaeTEDQAUCnbSNVXaCHZMcL4419iR3kjrUURZYoa_voRzbmFwwIN0Y3CCdl-DdWRwgnZf",
+    "score": 3041,
+    "firstResponse": "2024-03-14T08:19:33Z",
+    "lastResponse": "2026-09-18T19:01:32Z",
+    "lastCheck": "2026-09-18T19:01:32Z"
   },
   "96e42c3e2fd0109ba9efa9c0136a3e664126b3d510523a5daa114f9bb88d7da4": {
     "seq": 1789503921661,
     "record": "enr:-KO4QHrS2XsqIR_xLjZBdnA_Z1MfdJOzEmHStWE7khaDWBz8Iw0Qceg3NA0A0pBLeFT7PbQk8-cL2y387TlseO9WCJGGAaCmvt39g2V0aMfGhDprANeAgmlkgnY0gmlwhI_GbsGJc2VjcDI1NmsxoQNHtzeO_jYGv2QHr6ic_wzZlURMfQzYv7qhEvHDMkTPkIRzbmFwwIN0Y3CCdl-DdWRwgnZf",
-    "score": 10,
+    "score": 11,
     "firstResponse": "2026-09-16T20:01:32Z",
-    "lastResponse": "2026-09-18T12:56:39Z",
-    "lastCheck": "2026-09-18T12:56:39Z"
+    "lastResponse": "2026-09-18T19:01:30Z",
+    "lastCheck": "2026-09-18T19:01:30Z"
+  },
+  "918b257d00fccffa4f9f9ac769abb0522f579142ef325758b31b609c4e9a36f5": {
+    "seq": 1789061412058,
+    "record": "enr:-KO4QJTQTJ3szISvRiX1uIdp-Glam3j4Ls63c56O4rxnZur2ICGy8dGp8k4j95Yq7bIGkToJa3GQcSeYBxHaPlm_WGGGAaCMXrTag2V0aMfGhDprANeAgmlkgnY0gmlwhAX8NU-Jc2VjcDI1NmsxoQIZUB1o_P6A0LF724TJ10lTqhWivuSM1PTwba01JFMhu4RzbmFwwIN0Y3CCdl-DdWRwgnZf",
+    "score": 41,
+    "firstResponse": "2026-09-11T22:49:47Z",
+    "lastResponse": "2026-09-18T19:01:29Z",
+    "lastCheck": "2026-09-18T19:01:29Z"
   },
   "8da300d3961a0fb3ed21c8b22d181321ce25946615c0862a76faba2c59d862f3": {
     "seq": 1699486122415,
     "record": "enr:-KO4QOhKW61ABz2AGua8g8uJcve0itizkkqJVXYWUQ6tpAxgJpSul11Z9lONzaifzG_kXIb79-k6jjvNHfOF1vOPk0GGAYuxREGvg2V0aMfGhDprANeAgmlkgnY0gmlwhDazGYyJc2VjcDI1NmsxoQJDmlvyACgJ8L6fnzRPXK7dC4AgEYJz4ncAQ6D0pzBXnIRzbmFwwIN0Y3CCdl-DdWRwgnZf",
-    "score": 1289,
+    "score": 1290,
     "firstResponse": "2025-03-08T16:17:00Z",
-    "lastResponse": "2026-09-18T12:56:38Z",
-    "lastCheck": "2026-09-18T12:56:38Z"
+    "lastResponse": "2026-09-18T19:01:28Z",
+    "lastCheck": "2026-09-18T19:01:28Z"
   },
   "4808151b118d7374040a69a6518e7d1fbbc3843d8299be153fd99354ff1dcb26": {
     "seq": 1783012326466,
     "record": "enr:-KO4QKwM9JkBXqFW8XmUSyCOIh83m7fz3uf24AofcSRv0KWuI9CQE572RIGulj7wg0l1T5aw9wjoR7OTeQGJ5fYbM7eGAZ8j0PxCg2V0aMfGhDprANeAgmlkgnY0gmlwhI_GF96Jc2VjcDI1NmsxoQJad9pUe3iwkbP-FpdUdJj7wIDeL_NBUpGBkFiOCIqt1oRzbmFwwIN0Y3CCdl-DdWRwgnZf",
-    "score": 26,
+    "score": 27,
     "firstResponse": "2026-07-04T21:37:35Z",
-    "lastResponse": "2026-09-18T12:56:30Z",
-    "lastCheck": "2026-09-18T12:56:30Z"
+    "lastResponse": "2026-09-18T19:01:20Z",
+    "lastCheck": "2026-09-18T19:01:20Z"
   },
   "11be69a1920d5003a9e4d158964c7243772165a662dba9d1dd22806c253ddf7f": {
     "seq": 1723709159681,
     "record": "enr:-KO4QL5zACXBESHkmpu4RwKuqWImYkl_PgVEdbZ8Z_VMlmjuag2z7zGkJ-cmui2fvD0DkMytDSPrTzRJbJj91ov5W5yGAZFVEnkBg2V0aMfGhDprANeAgmlkgnY0gmlwhFtcx8uJc2VjcDI1NmsxoQPDzZRu_gBBAftGUX-G3rWA9GqYTxUsXIsU4WaZYe-7ZIRzbmFwwIN0Y3CCUzeDdWRwglM3",
-    "score": 339,
+    "score": 340,
     "firstResponse": "2026-06-13T06:08:18Z",
-    "lastResponse": "2026-09-18T12:56:27Z",
-    "lastCheck": "2026-09-18T12:56:27Z"
+    "lastResponse": "2026-09-18T19:01:17Z",
+    "lastCheck": "2026-09-18T19:01:17Z"
   }
 }
